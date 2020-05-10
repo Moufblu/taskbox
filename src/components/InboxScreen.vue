@@ -5,16 +5,16 @@
 </template>
 
 <script>
-import PureInboxScreen from './PureInboxScreen';
-import { mapState } from 'vuex';
+import PureInboxScreen from "./PureInboxScreen";
+import { mapState } from "vuex";
 
 export default {
-  name: 'inbox-screen',
+  name: "inbox-screen",
   components: {
-    PureInboxScreen,
+    PureInboxScreen
   },
   computed: {
-    ...mapState(['error']),
-  },
+    ...mapState(["error"])
+  }
 };
 </script>

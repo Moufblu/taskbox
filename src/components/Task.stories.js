@@ -1,23 +1,23 @@
-import { action } from '@storybook/addon-actions';
-import { withKnobs, object } from '@storybook/addon-knobs';
-import Task from './Task';
+import { action } from "@storybook/addon-actions";
+import { withKnobs, object } from "@storybook/addon-knobs";
+import Task from "./Task";
 
 export default {
-  title: 'Task',
+  title: "Task",
   decorators: [withKnobs],
   // Our exports that end in "Data" are not stories.
-  excludeStories: /.*Data$/,
+  excludeStories: /.*Data$/
 };
 export const actionsData = {
-  onPinTask: action('onPinTask'),
-  onArchiveTask: action('onArchiveTask'),
+  onPinTask: action("onPinTask"),
+  onArchiveTask: action("onArchiveTask")
 };
 
 export const taskData = {
-  id: '1',
-  title: 'Test Task',
-  state: 'Task_INBOX',
-  updated_at: new Date(2019, 0, 1, 9, 0),
+  id: "1",
+  title: "Test Task",
+  state: "Task_INBOX",
+  updated_at: new Date(2019, 0, 1, 9, 0)
 };
 
 const taskTemplate = `<task :task="task" @archiveTask="onArchiveTask" @pinTask="onPinTask"/>`;
@@ -30,10 +30,10 @@ export const Default = () => ({
   template: taskTemplate,
   props: {
     task: {
-      default: object('task', { ...taskData }),
-    },
+      default: object("task", { ...taskData })
+    }
   },
-  methods: actionsData,
+  methods: actionsData
 });
 // pinned task state
 export const Pinned = () => ({
@@ -43,11 +43,11 @@ export const Pinned = () => ({
     task: {
       default: () => ({
         ...taskData,
-        state: 'TASK_PINNED',
-      }),
-    },
+        state: "TASK_PINNED"
+      })
+    }
   },
-  methods: actionsData,
+  methods: actionsData
 });
 // archived task state
 export const Archived = () => ({
@@ -57,11 +57,11 @@ export const Archived = () => ({
     task: {
       default: () => ({
         ...taskData,
-        state: 'TASK_ARCHIVED',
-      }),
-    },
+        state: "TASK_ARCHIVED"
+      })
+    }
   },
-  methods: actionsData,
+  methods: actionsData
 });
 
 export const LongTitle = () => ({
@@ -71,9 +71,9 @@ export const LongTitle = () => ({
     task: {
       default: () => ({
         ...taskData,
-        title: longTitle,
-      }),
-    },
+        title: longTitle
+      })
+    }
   },
-  methods: actionsData,
+  methods: actionsData
 });
