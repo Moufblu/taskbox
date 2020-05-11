@@ -10,6 +10,6 @@ docker run --rm -ti \
  -v ${PWD##*/}-node-modules:/project/node_modules \
  -v ~/.cache/electron:/root/.cache/electron \
  -v ~/.cache/electron-builder:/root/.cache/electron-builder \
- electronuserland/builder:wine /bin/bash -c "npm install && npm run electron:generate-icons && ./node_modules/.bin/vue-cli-service electron:build --windows"
+ electronuserland/builder:wine /bin/bash -c "npm install && ./node_modules/.bin/vue-cli-service electron:build --windows"
 
 docker rmi electronuserland/builder:wine
